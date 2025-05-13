@@ -196,12 +196,7 @@ meshData.vers_n = vers_n;
 
 LATIBORDO=1;
 t_choosen=meshData.t(type>=0,:);
-
-if MEX_OPT 
-    [~,e_interface]=fun_lati_fast_mex(t_choosen,LATIBORDO);
-else
-    [~,e_interface]=fun_lati_fast(t_choosen,LATIBORDO);
-end
+[~,e_interface]=fun_lati_fast(t_choosen,LATIBORDO);
 
 meshData.e_interface=e_interface;
 

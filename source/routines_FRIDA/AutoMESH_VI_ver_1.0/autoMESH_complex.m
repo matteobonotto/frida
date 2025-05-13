@@ -1,7 +1,7 @@
 function [p,e,t]=autoMESH_complex(filename,GEOMETRY,order,dirname)
 
 pp = pwd;
-cd(dirname)
+% % cd(dirname)
 
 
 %% WRITEB INPUT GMSH .geo FILE
@@ -14,7 +14,7 @@ command_dos = sprintf('gmsh -2 -order %i -format m %s.geo', order, filename);
 
 if ismac
     setenv('PATH', getenv('PATH')+":/opt/homebrew/bin/")
-    message = ['autoMESH: if uding MAC add gmsh dir ', ...
+    message = ['autoMESH: if using MAC add gmsh dir ', ...
         'like this -> ', ...
         'setenv("PATH", getenv("PATH")+":/opt/homebrew/bin/")'];
     warning(message)
