@@ -1,8 +1,0 @@
-aaa = 0
-
-
-
-filename = '/Users/matte/Documents/RESEARCH/frida/tests/fixtures/test_circle';
-
-run('/Users/matte/Documents/RESEARCH/frida/tests/fixtures/test_circle.m')
-
