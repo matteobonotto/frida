@@ -73,7 +73,7 @@ if isempty(ind_axis)==0
     for  jj=1:ncoil
         r0=source(jj,1);
         z0=source(jj,2);
-        bz(ind_axis,jj)=4.d-7*pi*r0/(2*(r0^2+(ZZ(ind_axis)-z0).^2).^1.5d0);
+        bz(ind_axis,:)=4.d-7*pi*r0/(2*(r0^2+(ZZ(ind_axis)-z0).^2).^1.5d0);
     end
 end
 

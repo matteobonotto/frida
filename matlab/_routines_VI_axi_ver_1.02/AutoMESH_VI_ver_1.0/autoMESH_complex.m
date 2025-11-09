@@ -46,6 +46,7 @@ end
 lati_tot=sort(lati_tot,2);
 [e,~,~]=unique(lati_tot,'rows');
 
+[J1,J2] = ellipke(kk_square)
 
 cd ../
 

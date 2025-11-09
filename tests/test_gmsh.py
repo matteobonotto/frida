@@ -174,38 +174,34 @@ from frida.mesh import GmshReader
 #     gmsh.finalize()
 
 
-
-
 @pytest.mark.parametrize("order", [1, 2])
 def test_gmsh_from_geo_file(order: int):
     path_geo = "tests/fixtures/test_circle.geo"
-    
+
     command = f"gmsh -2 -order {order} {path_geo}"
     path_msh = f"{path_geo.replace(".geo", ".msh")}"
     if os.path.exists(path_msh):
         os.remove(path_msh)
-    
+
     os.system(command)
-    
+
     # os.system(f"gmsh -2 -order {order} -format m {path_geo}")
     assert os.path.exists(path_msh)
-    
+
     reader = GmshReader()
     mesh = reader.read_planar_mesh(path=path_msh)
-    
+
     if os.path.exists(path_msh):
         os.remove(path_msh)
-        
-    
+
     # import pyvista as pv
     # import meshio
-    
+
     # points = mesh.nodes
-    
+
     # strips = np.hstack((3+np.zeros((mesh.elements.shape[0],1), dtype=np.uint8), mesh.elements)).reshape(-1,1).squeeze().tolist()
     # mesh_pv = pv.PolyData(points, strips=strips)
-    
-    
+
     # # Create an array of points
     # points = np.array(
     #     [
@@ -220,7 +216,7 @@ def test_gmsh_from_geo_file(order: int):
     #     ],
     # )
     # strips = np.array([8, 0, 1, 2, 3, 4, 5, 6, 7])
-    
+
     # pl = pv.Plotter()
     # pl.add_mesh(mesh_pv, show_edges=True)
     # pl.add_point_labels(mesh_pv.points, range(mesh_pv.n_points))
@@ -228,24 +224,21 @@ def test_gmsh_from_geo_file(order: int):
     # pl.camera.zoom(1.2)
     # pl.show()
     # pl.close()
-    
-    
-    
+
     # mesh = meshio.read(path_msh)
 
     # print(mesh.points)        # N x 3 numpy array of node coordinates
     # print(mesh.cells_dict)    # Dictionary of element types and connectivity
 
     # # strips = mesh.
-    
+
     # pl = pv.Plotter()
     # pl.add_mesh(mesh, show_edges=True)
     # pl.add_point_labels(mesh.points, range(mesh.n_points))
     # pl.camera_position = 'yx'
     # pl.camera.zoom(1.2)
     # pl.show()
-    
-    
+
     # mesh = pyvista.Plane(i_resolution=10, j_resolution=10)
     # mesh.cell_data["colors"] = [
     #     [1.0, 0, 0],
@@ -258,6 +251,3 @@ def test_gmsh_from_geo_file(order: int):
     # plotter.add_mesh(mesh, scalars="colors", rgb=True)
     # plotter.view_xy()
     # plotter.show()
-    
-    
-    
