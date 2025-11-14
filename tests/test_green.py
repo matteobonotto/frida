@@ -1,7 +1,7 @@
 import numpy as np
 import json
 from typing import Dict
-from frida.green import (
+from frida.integral import (
     calc_complete_elliptic_integral,
     green_brbz_filament,
     green_flux_filament,
